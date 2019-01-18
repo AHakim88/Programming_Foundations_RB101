@@ -1,1 +1,10 @@
+START
 
+GET Array of integers
+
+SET variable equal to the size of the array
+
+
+Loop do
+
+WHILE array size equal to odd then return new array.
