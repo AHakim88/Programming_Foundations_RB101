@@ -4,3 +4,5 @@ GET Integer1
 GET Integer2
 
 PRINT Integer1 + integer2 = RESULT
+
+END
