@@ -7,7 +7,7 @@ SET variable equal to the size of the array
 
 Loop do Array
 
-WHILE array size equal to odd then return new array.
+WHILE array size is not equal to size of array then return new array.
 
 
 END
