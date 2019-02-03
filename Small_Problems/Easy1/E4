@@ -1,0 +1,10 @@
+def count_occurrences(array)
+  array.uniq.each do |word|
+    puts "#{word} => #{array.count(word)}"
+  end
+end
+vehicles = [
+  'car', 'car', 'truck', 'car', 'SUV', 'truck',
+  'motorcycle', 'motorcycle', 'car', 'truck'
+]
+count_occurrences(vehicles)
