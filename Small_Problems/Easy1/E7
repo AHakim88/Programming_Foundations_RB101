@@ -1,5 +1,5 @@
 def stringy(integer)
-
+integer.to_s
 
 
 
