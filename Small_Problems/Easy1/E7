@@ -1,0 +1,25 @@
+def stringy(integer)
+
+
+
+
+puts stringy(6) == '101010'
+puts stringy(9) == '101010101'
+puts stringy(4) == '1010'
+puts stringy(7) == '1010101'
+
+
+
+
+Understand the Problem:
+Input: A positive integer
+Output: A string of 1s and 0s 
+Length of string equal integer given
+Examples/Test Cases:
+Given
+Data Structures:
+String?
+Algorithms:
+Given integer
+Convert the integer into binary 1s and 0s
+The binary should always start with 1
