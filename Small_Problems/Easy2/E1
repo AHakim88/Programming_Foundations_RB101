@@ -1,1 +1,13 @@
+age = rand(20..200)
 
+puts "Teddy is #{age} years old "
+
+
+puts "Hi what's your name?"
+
+name = gets.chomp
+
+name = "Teddy" if name.empty? 
+  
+  
+  puts "#{name} is #{rand (20..200)} years old!"
