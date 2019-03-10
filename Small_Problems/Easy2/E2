@@ -1,0 +1,14 @@
+FEET_TO_SQINCHES = 144
+SQINCHES_TO_SQCENTIMETERS = 929.03
+
+puts '==> Enter the length of the room in feet '
+length = gets.to_f
+
+puts '==> Enter the width of the room in feet: '
+width = gets.to_f
+
+feet = (length * width).round(2)
+square_inches = (feet  * FEET_TO_SQINCHES).round(2)
+square_centimetres =  (square_inches * SQINCHES_TO_SQCENTIMETERS).round(2) 
+
+puts "The area of the room is #{feet} feets (#{square_inches} square inches: #{square_centimetres} square centimetres)."
