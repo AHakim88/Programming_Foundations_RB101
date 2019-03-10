@@ -1,0 +1,11 @@
+def greeting
+  puts "What is your name?"
+  reply = gets.chomp
+  
+if reply.end_with? "!" 
+   puts "HELLO #{reply.upcase.chop}. WHY ARE WE SCREAMING?"
+else 
+   puts "Hello #{reply}"
+end  
+ end
+ puts greeting
