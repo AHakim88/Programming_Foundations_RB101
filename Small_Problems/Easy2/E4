@@ -1,0 +1,13 @@
+puts "What is your age?" 
+age = gets.to_i
+
+puts "At what age would you like to retire?"
+retiring_age = gets.to_i
+
+current_year = Time.now.year
+d_day  = current_year + (retiring_age - age)
+years_remain = d_day - current_year
+
+puts "It's #{current_year}. You will retire in #{d_day}."
+
+puts "You have only #{years_remain} years of work to go!"
