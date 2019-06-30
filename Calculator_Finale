@@ -50,11 +50,10 @@ end
 def display_loan_duration_error
   prompt('The duration of the month is incorrect. Please try again.')
 end
-   
+
 def display_restart_program
   prompt('Do you want to run the program again?')
 end
-
 
 def extract_username
   username = ''
@@ -68,7 +67,6 @@ def extract_username
   end
   username
 end
-
 
 def extract_loan_amount
   amount = nil
@@ -103,56 +101,53 @@ def extract_loan_duration
   duration
 end
 
-
-
 def extract_user_response
   user_response = ''
   loop do
     display_restart_program
     user_response = gets.chomp.downcase
-    break if user_response != %w(y  yes)
+    break if user_response != %w(y yes)
   end
   user_response
 end
- 
- def try_again
-prompt('Press Y if you would like to try again.')   
+
+def try_again
+  prompt('Press Y if you would like to try again.')
 end
- 
+
 def user_input?(user_response)
- user_response == 'y' || user_response == 'yes'
+  user_response == 'y' || user_response == 'yes'
 end
 
 def display_goodbye
   prompt('Thank you for your patronage!')
-end  
+end
 
 loop do
+  display_access_username
 
-display_access_username
+  name = extract_username
+  prompt("Hi #{name}, thank you for verifying your username.
+  Welcome to your online loan calculator!")
 
-name = extract_username
-prompt("Hi #{name}, thank you for verifying your username.
-Welcome to your online loan calculator!")
+  amount = extract_loan_amount
+  rate = extract_apr_rate
+  duration = extract_loan_duration
 
-amount = extract_loan_amount
-rate = extract_apr_rate
-duration= extract_loan_duration
-
-prompt('computing your monthly repayment...')
- loan_amount = amount.to_f
+  prompt('computing your monthly repayment...')
+  loan_amount = amount.to_f
   monthly_rate = (rate.to_f / 100) / 12
   loan_duration = duration.to_i
 
   answer = loan_amount *
-          (monthly_rate / (1 - (1 + monthly_rate)**-loan_duration))
+           (monthly_rate /
+           (1 - (1 + monthly_rate)**-loan_duration))
 
+  prompt("Your monthly payment is $#{answer.round(2)}")
 
-prompt("Your monthly payment is $#{answer.round(2)}")
-
-try_again
-user_response = extract_user_response
-break unless user_input?(user_response)
-system('clear') || system('cls')
+  try_again
+  user_response = extract_user_response
+  break unless user_input?(user_response)
+  system('clear') || system('cls')
 end
 display_goodbye
