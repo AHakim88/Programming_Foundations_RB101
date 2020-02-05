@@ -1,18 +1,18 @@
-ALID_CHOICES = %w(rock paper scissors lizard spock)
+VALID_CHOICES = %w(rock paper scissors lizard spock)
 hash_input = { 'l' => 'lizard', 'r' => 'rock', 'p' => 'paper', 'sc' => 'scissors', 'sp' => 'spock' }
-WINNER  = { 'lizard' => ['paper', 'spock'] , 'rock' => ['scissors', 'lizard'], 
+WINNER  = { 'lizard' => ['paper', 'spock'] , 'rock' => ['scissors', 'lizard'],
 'paper' => ['rock', 'spock'], 'scissors' => ['paper', 'lizard'], 'spock' => ['scissors', 'rock'] }
 SYMBOL = { player: 0, computer: 0, draws: 0 }
 
-def winner(player,computer)
-if win?(player, computer)
-  SYMBOL[player] += 1
-elsif win?(computer, player)
-  SYMBOL[computer] += 1
-else
-  SYMBOL[draw] += 1
-  end_game
-end
+def winner(player, computer)
+  if win?(player, computer)
+    SYMBOL[player] += 1
+  elsif win?(computer, player)
+    SYMBOL[computer] += 1
+  else
+    SYMBOL[draw] += 1
+end_game
+  end
 end
 
 def prompt(message)
@@ -35,26 +35,24 @@ def display_results(player, computer)
 end
 
 def end_game
-loop do
-  if SYMBOL[player] == 5 || SYMBOL[computer] ==5
-    break
+  loop do
+    break if SYMBOL[player] == 5 || SYMBOL[computer] == 5
   end
-end
 end
 
 def choose_winner
-if win?(player, computer)
-  prompt('You score 1 point')
-elsif win?(computer, player)
-  prompt('Computer score 1 point')
-else
-  prompt('Each score 1 point')
-  end_game
-end
+  if win?(player, computer)
+    prompt('You score 1 point')
+  elsif win?(computer, player)
+    prompt('Computer score 1 point')
+  else
+    prompt('Each score 1 point')
+end_game
+  end
 end
 
 def get_user_choice
-choice = ' '
+  choice = ' '
   real_choice = nil
 
   loop do
@@ -63,11 +61,11 @@ choice = ' '
     real_choice = hash_input.fetch(choice, choice)
 
 if VALID_CHOICES.include?(real_choice)
-  return
+  return real_choice
 else prompt("That's not a valid choice.")
 end
-end 
- 
+  end
+
 loop do
   real_choice = get_user_choice
 
@@ -79,7 +77,7 @@ loop do
   prompt('Do you want to play again? Y to do so')
   answer = Kernel.gets.chomp
   break unless answer.downcase.start_with?('y')
-end 
 end
- 
+end
+
 prompt('Thank you for playing. Good bye!')
