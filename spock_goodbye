@@ -44,7 +44,7 @@ end
 def choose_winner(player_choice, computer_choice)
   if win?(player_choice, computer_choice)
     return :player
-  elsif win?(player_choice, computer_choice)
+  elsif win?(computer_choice, player_choice)
     return :computer
   else
     return nil
