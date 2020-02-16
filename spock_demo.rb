@@ -115,6 +115,7 @@ loop do
   display_continue
   answer = Kernel.gets.chomp
   break unless answer.casecmp('y').zero?
+  system('clear') || system('cls')
   end_game
 end
 display_goodbye_message
