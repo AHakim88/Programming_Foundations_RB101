@@ -116,9 +116,19 @@ def extract_user_response
   user_response
 end
 
-def play_again(answer)
-  answer.downcase == 'y'
+def play_again?(answer)
+   answer.downcase == 'y'
 end
+
+def extract_play_again_answer
+  answer = ''
+  loop do
+  answer = Kernel.gets.chomp
+  break if play_again?(answer)
+  puts "Thank you for playing"
+end
+answer
+end 
 
 loop do
 
@@ -132,8 +142,8 @@ amount = extract_loan_amount
 rate = extract_apr_rate
 duration= extract_loan_duration
 
-prompt('computing your monthly repayment...')
- loan_amount = amount.to_f
+  prompt('computing your monthly repayment...')
+  loan_amount = amount.to_f
   monthly_rate = (rate.to_f / 100) / 12
   loan_duration = duration.to_i
 
@@ -144,6 +154,5 @@ prompt('computing your monthly repayment...')
 prompt("Your monthly payment is $#{answer.round(2)}")
 
 prompt('Press Y if you would like to try again.')
-user_input = Kernel.gets.chomp
-break unless play_again(answer)
+extract_play_again_answer
 end
